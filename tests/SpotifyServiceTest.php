@@ -14,4 +14,13 @@ class SpotifyServiceTest extends TestCase
 
         $this->assertInstanceOf(SpotifyService::class, $spotifyService);
     }
+
+    public function testItShouldGetArtistId()
+    {
+        $spotifyService = new SpotifyService();
+
+        $artistId = $spotifyService->searchArtistId('Tote Vega');
+
+        $this->assertEquals('1973x73eN9EV5RPMXWE64N', $artistId);
+    }
 }
