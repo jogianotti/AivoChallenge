@@ -1,11 +1,11 @@
 <?php
 
 
-namespace AivoChallenge\Tests;
+namespace AivoChallenge\Tests\IO;
 
-use AivoChallenge\Album;
-use AivoChallenge\Cover;
-use AivoChallenge\SpotifyService;
+use AivoChallenge\Domain\Album;
+use AivoChallenge\Domain\Cover;
+use AivoChallenge\IO\SpotifyService;
 use PHPUnit\Framework\TestCase;
 
 class SpotifyServiceTest extends TestCase

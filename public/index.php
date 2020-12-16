@@ -1,8 +1,8 @@
 <?php
 
-use AivoChallenge\AlbumsFieldsExtractor;
-use AivoChallenge\AlbumsSearcher;
-use AivoChallenge\SpotifyService;
+use AivoChallenge\Domain\AlbumsFieldsExtractor;
+use AivoChallenge\Domain\AlbumsSearcher;
+use AivoChallenge\IO\SpotifyService;
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
 use Slim\App;

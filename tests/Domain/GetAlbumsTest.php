@@ -1,13 +1,13 @@
 <?php
 
-namespace AivoChallenge\Tests;
+namespace AivoChallenge\Tests\Domain;
 
+use AivoChallenge\Domain\AlbumsSearcher;
+use AivoChallenge\Domain\MusicService;
+use AivoChallenge\IO\SpotifyService;
 use Mockery;
 use Mockery\MockInterface;
 use PHPUnit\Framework\TestCase;
-use AivoChallenge\AlbumsSearcher;
-use AivoChallenge\SpotifyService;
-use AivoChallenge\MusicService;
 
 class GetAlbumsTest extends TestCase
 {

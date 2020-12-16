@@ -1,6 +1,6 @@
 <?php
 
-namespace AivoChallenge;
+namespace AivoChallenge\Domain;
 
 interface MusicService
 {

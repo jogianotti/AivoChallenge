@@ -1,10 +1,16 @@
 <?php
 
 
-namespace AivoChallenge;
+namespace AivoChallenge\IO;
 
-use GuzzleHttp\Psr7\Request;
+use AivoChallenge\Domain\Album;
+use AivoChallenge\Domain\Cover;
+use AivoChallenge\Domain\FailedAccessTokenRequestException;
+use AivoChallenge\Domain\FailedGetAlbumsException;
+use AivoChallenge\Domain\FailedSearchException;
+use AivoChallenge\Domain\MusicService;
 use GuzzleHttp\Client;
+use GuzzleHttp\Psr7\Request;
 
 class SpotifyService implements MusicService
 {
