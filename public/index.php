@@ -25,10 +25,14 @@ $app->get('/api/v1/albums', function (Request $request, Response $response) {
     $albums_searcher = $this->get('albums_searcher');
     $albums_fields_extractor = $this->get('albums_fields_extractor');
 
-    $albums = $albums_searcher($parameters['q']);
-    $albums_array = $albums_fields_extractor($albums);
+    try {
+        $albums = $albums_searcher($parameters['q']);
+        $data = $albums_fields_extractor($albums);
+    } catch (\Exception $e) {
+        $data = ['error' => $e->getMessage()];
+    }
 
-    return $response->withJson($albums_array);
+    return $response->withJson($data);
 });
 
 $app->run();
