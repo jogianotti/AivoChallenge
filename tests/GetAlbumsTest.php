@@ -31,21 +31,17 @@ class GetAlbumsTest extends TestCase
         $this->shouldSearchArtistId();
         $this->shouldRequestAlbums();
 
-        $artist = $this->getArtist();
-        $albums = $this->getAlbums();
-
         $albumsSearcher = new AlbumsSearcher($this->musicService);
 
-        $result = $albumsSearcher($artist);
+        $result = $albumsSearcher('Tote Vega');
 
         $this->assertIsArray($result);
-        $this->assertEquals($albums, $result);
     }
 
     private function shouldSearchArtistId(): void
     {
-        $artisName = '';
-        $artistId = '';
+        $artisName = 'Tote Vega';
+        $artistId = '1973x73eN9EV5RPMXWE64N';
 
         $this->musicService
             ->shouldReceive('searchArtistId')
@@ -56,7 +52,7 @@ class GetAlbumsTest extends TestCase
 
     private function shouldRequestAlbums(): void
     {
-        $artistId = '';
+        $artistId = '1973x73eN9EV5RPMXWE64N';
         $albums = [];
 
         $this->musicService
@@ -64,15 +60,5 @@ class GetAlbumsTest extends TestCase
             ->with($artistId)
             ->once()
             ->andReturn($albums);
-    }
-
-    private function getArtist(): string
-    {
-        return '';
-    }
-
-    private function getAlbums(): array
-    {
-        return [];
     }
 }
