@@ -47,4 +47,13 @@ class SpotifyServiceTest extends TestCase
 
         $this->assertEquals($expectedAlbums, $albums);
     }
+
+    public function testItShouldNotGetArtistId()
+    {
+        $spotifyService = new SpotifyService();
+
+        $artistId = $spotifyService->searchArtistId('Jorge Oscar Gianotti');
+
+        $this->assertNull($artistId);
+    }
 }

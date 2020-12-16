@@ -68,7 +68,7 @@ class SpotifyService implements MusicService
 
         $result = json_decode($response->getBody()->getContents());
 
-        return $result->artists->items[0] ? $result->artists->items[0]->id : null;
+        return isset($result->artists->items[0]) ? $result->artists->items[0]->id : null;
     }
 
     public function getAlbums(string $artistId): array

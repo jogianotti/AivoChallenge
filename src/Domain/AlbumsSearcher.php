@@ -16,8 +16,11 @@ class AlbumsSearcher
     public function __invoke(string $artist)
     {
         $artistId = $this->musicService->searchArtistId($artist);
-        $albums = $this->musicService->getAlbums($artistId);
 
-        return $albums;
+        if (!$artistId) {
+            return [];
+        }
+
+        return $this->musicService->getAlbums($artistId);
     }
 }
