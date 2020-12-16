@@ -70,6 +70,37 @@ class SpotifyService implements MusicService
 
     public function getAlbums(string $artistId): array
     {
-        // TODO: Implement getAlbums() method.
+        $client = new Client();
+        $request = new Request(
+            'GET',
+            self::API_BASE_URI . str_replace('{id}', $artistId, self::ALBUMS_ENDPOINT),
+            [
+                'Authorization' => 'Bearer ' . $this->accessToken
+            ]
+        );
+
+        $response = $client->send($request, ['timeout' => 5]);
+
+        if ($response->getStatusCode() !== 200) {
+            throw new FailedGetAlbumsException();
+        }
+
+        $result = json_decode($response->getBody()->getContents());
+
+        $albums = [];
+        foreach ($result->items as $album) {
+            $albums[] = new Album(
+                $album->name,
+                $album->release_date,
+                $album->total_tracks,
+                new Cover(
+                    $album->images[0]->width,
+                    $album->images[0]->height,
+                    $album->images[0]->url
+                )
+            );
+        }
+
+        return $albums;
     }
 }
