@@ -1,8 +1,5 @@
 <?php
 
-//ID        7a1982c983b945c2b0ebfc6fc15393f6
-//SECRET    5dc6f4153bf342f08242f89980c7ee87
-
 namespace AivoChallenge\Tests;
 
 use Mockery;
