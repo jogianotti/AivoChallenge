@@ -2,4 +2,8 @@
     bootstrap="vendor/autoload.php"
     colors="true"
 >
+    <php>
+        <env name="CLIENT_ID" value="7a1982c983b945c2b0ebfc6fc15393f6"/>
+        <env name="CLIENT_SECRET" value="5dc6f4153bf342f08242f89980c7ee87"/>
+    </php>
 </phpunit>

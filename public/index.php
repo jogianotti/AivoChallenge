@@ -7,8 +7,12 @@ use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
 use Slim\App;
 use Slim\Container;
+use Symfony\Component\Dotenv\Dotenv;
 
 require '../vendor/autoload.php';
+
+$dotenv = new Dotenv();
+$dotenv->load(__DIR__ . '/../.env');
 
 $container = new Container();
 $container['albums_searcher'] = function () {

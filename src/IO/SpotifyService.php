@@ -19,9 +19,6 @@ class SpotifyService implements MusicService
     private const SEARCH_ENDPOINT = "/search?q={query}&type=artist";
     private const ALBUMS_ENDPOINT = "/artists/{id}/albums";
 
-    private const CLIENT_ID = "7a1982c983b945c2b0ebfc6fc15393f6";
-    private const CLIENT_SECRET = "5dc6f4153bf342f08242f89980c7ee87";
-
     private string $accessToken;
 
     public function __construct()
@@ -39,7 +36,7 @@ class SpotifyService implements MusicService
             self::TOKEN_ENDPOINT,
             [
                 'Content-Type' => 'application/x-www-form-urlencoded',
-                'Authorization' => 'Basic ' . base64_encode(self::CLIENT_ID . ':' . self::CLIENT_SECRET)
+                'Authorization' => 'Basic ' . base64_encode($_ENV['CLIENT_ID'] . ':' . $_ENV['CLIENT_SECRET'])
             ],
             'grant_type=client_credentials'
         );
